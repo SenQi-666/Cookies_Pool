@@ -1,0 +1,5 @@
+redis>=3.5.3
+requests>=2.24.0
+selenium>=3.141.0
+Flask>=1.1.2
+Appium-Python-Client>=1.0.2
