@@ -53,4 +53,4 @@ TESTER_PROCESS = True
 API_PROCESS = True
 
 # 您的手机号，用于控制手机发送短信登陆账号，如不需要填None（目前微博需要，其他站点自行斟酌）
-PHONE_NUMBER = '18132386942'
+PHONE_NUMBER = None
