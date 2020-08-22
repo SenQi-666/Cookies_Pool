@@ -13,63 +13,26 @@
 
 ```
 ├── CookiesPool
-
 │  ├── API.py
-
 │  ├── Generator.py
-
 │  ├── RedisControl.py
-
 │  ├── SaveAccount.py
-
 │  ├── Scheduler.py
-
 │  ├── Tester.py
-
 │  ├── __init__.py
-
-│  ├── __pycache__
-
-│  │  ├── RedisControl.cpython-36.pyc
-
-│  │  ├── Scheduler.cpython-36.pyc
-
-│  │  └── __init__.cpython-36.pyc
-
 │  └── weibo
-
 │    ├── PhoneSMS.py
-
 │    ├── __init__.py
-
-│    └── __pycache__
-
-│      ├── PhoneSMS.cpython-36.pyc
-
-│      └── __init__.cpython-36.pyc
-
 ├── README.md
-
-├── __pycache__
-
 ├── bin
-
 │  ├── Generate_Account_File.py
-
 │  ├── __init__.py
-
 │  └── run_project.py
-
 ├── conf
-
 │  ├── Settings.py
-
 │  └── __init__.py
-
 ├── libs
-
 │  └── weibo_account.txt
-
 └── requirements.txt
 ```
 
@@ -250,8 +213,8 @@ API接口开始运行......
    WARNING: This is a development server. Do not use it in a production deployment.
    Use a production WSGI server instead.
  * Debug mode: off
-weibo 站点的Cookies全部检测完成
  * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
+weibo 站点的Cookies全部检测完成
 正在为账号：16521576842 生成Cookie......请稍后...
 正在向 1069009010021 发送短信内容：DLYZ，请稍后......
 短信发送完成！
