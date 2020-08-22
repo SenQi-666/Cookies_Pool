@@ -1,11 +1,12 @@
+from conf import Settings
 import random
 import redis
 
 
 class RedisClient:
-    def __init__(self, website, kind, host='localhost', port=6379, pwd=''):
+    def __init__(self, website, kind):
         self.conn = redis.StrictRedis(
-            host=host, port=port, password=pwd, decode_responses=True
+            host=Settings.REDIS_HOST, port=Settings.REDIS_PORT, password=Settings.REDIS_PASSWORD, decode_responses=True
         )
         self.website = website
         self.kind = kind

@@ -3,47 +3,40 @@ from CookiesPool.Generator import *
 from CookiesPool.Tester import *
 from CookiesPool.API import app
 from conf import Settings
-import time
 
 
 class Dispatch:
     def __init__(self):
         self.GENERATOR_MAP = Settings.GENERATOR_MAP
-        self.GENERATOR_DELAY = Settings.GENERATOR_DELAY
         self.TESTER_MAP = Settings.TESTER_MAP
-        self.TESTER_DELAY = Settings.TESTER_DELAY
         self.HOST = Settings.API_HOST
         self.PORT = Settings.API_PORT
         self.GENERATOR_PROCESS = Settings.GENERATOR_PROCESS
         self.TESTER_PROCESS = Settings.TESTER_PROCESS
         self.API_PROCESS = Settings.API_PROCESS
-        self.PHONE_NUMBER = Settings.PHONE_NUMBER
+        self.PHONE_NUMBER = str(Settings.PHONE_NUMBER)
 
     def cookies_generate(self):
-        while True:
-            print('开始生成Cookies......')
-            try:
-                for website, cls in self.GENERATOR_MAP.items():
-                    print('%s 站点的Cookies正在生成中，请稍后......' % website)
-                    generator = eval(cls+'(%s, %s)' % (website, self.PHONE_NUMBER))
-                    generator.run()
-                    print('%s 站点的Cookies生成完成' % website)
-                    time.sleep(self.GENERATOR_DELAY)
-            except Exception as e:
-                print(e.args)
+        print('开始生成Cookies......')
+        try:
+            if self.PHONE_NUMBER is None:
+                raise ValueError('Please enter your PhoneNumber in conf/Settings.py')
+            for website, cls in self.GENERATOR_MAP.items():
+                print('%s 站点的Cookies正在生成中，请稍后......' % website)
+                getattr(eval(cls + '("'+website+'", "'+self.PHONE_NUMBER+'"'+')'), 'run')()
+                print('%s 站点的Cookies全部生成并保存完成' % website)
+        except Exception as e:
+            print(e.args[0])
 
     def cookies_tester(self):
-        while True:
-            print('开始检测Cookies......')
-            try:
-                for website, cls in self.TESTER_MAP.items():
-                    print('正在检测 %s 站点的Cookies，请稍后......' % website)
-                    tester = eval(cls+'(%s)' % website)
-                    tester.run()
-                    print('%s 站点的Cookies检测完成' % website)
-                    time.sleep(self.TESTER_DELAY)
-            except Exception as e:
-                print(e.args)
+        print('开始检测Cookies......')
+        try:
+            for website, cls in self.TESTER_MAP.items():
+                print('正在检测 %s 站点的Cookies，请稍后......' % website)
+                getattr(eval(cls + '("'+website+'"'+')'), 'run')()
+                print('%s 站点的Cookies全部检测完成' % website)
+        except Exception as e:
+            print(e.args)
 
     def api(self):
         print('API接口开始运行......')

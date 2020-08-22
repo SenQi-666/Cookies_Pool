@@ -9,7 +9,7 @@ class SMS:
 
     def send(self):
         try:
-            print('正在使用 %s 发送短信内容：%s，请稍后......' % (self.PhoneNumber, self.Content))
+            print('正在向 %s 发送短信内容：%s，请稍后......' % (self.PhoneNumber, self.Content))
             desc = {
                 'deviceName': 'fe46f757',
                 'platformName': 'Android',
