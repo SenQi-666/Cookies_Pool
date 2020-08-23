@@ -17,7 +17,7 @@ GENERATOR_LOGIN_URL = {
 }
 
 # 检测器测试网址，如扩展其他站点可在此配置
-TESTER_URL = {
+TEST_URL = {
     'weibo': 'https://m.weibo.cn/profile/5014846080',
     # 'TaoBao': '',
 }
@@ -26,7 +26,7 @@ TESTER_URL = {
 GENERATOR_DELAY = 2
 
 # 检测器延迟，数字越大速度越慢
-TESTER_DELAY = 2
+TEST_DELAY = 2
 
 # Redis数据库地址
 REDIS_HOST = 'localhost'
@@ -44,13 +44,13 @@ API_HOST = '0.0.0.0'
 API_PORT = 5000
 
 # 生成器开关，生成Cookies
-GENERATOR_PROCESS = True
+GENERATOR_ENABLED = True
 
 # 检测器开关，检测Cookies是否可用
-TESTER_PROCESS = True
+TESTER_ENABLED = True
 
 # API接口服务
-API_PROCESS = True
+API_ENABLED = True
 
 # 您的手机号，用于控制手机发送短信登陆账号，如不需要填None（目前微博需要，其他站点自行斟酌）
 PHONE_NUMBER = None
