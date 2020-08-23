@@ -11,9 +11,9 @@ class Dispatch:
         self.TESTER_MAP = Settings.TESTER_MAP
         self.HOST = Settings.API_HOST
         self.PORT = Settings.API_PORT
-        self.GENERATOR_PROCESS = Settings.GENERATOR_PROCESS
-        self.TESTER_PROCESS = Settings.TESTER_PROCESS
-        self.API_PROCESS = Settings.API_PROCESS
+        self.GENERATOR_ENABLED = Settings.GENERATOR_ENABLED
+        self.TESTER_ENABLED = Settings.TESTER_ENABLED
+        self.API_ENABLED = Settings.API_ENABLED
         self.PHONE_NUMBER = str(Settings.PHONE_NUMBER)
 
     def cookies_generate(self):
@@ -43,14 +43,14 @@ class Dispatch:
         app.run(host=self.HOST, port=self.PORT)
 
     def run(self):
-        if self.GENERATOR_PROCESS:
+        if self.GENERATOR_ENABLED:
             generator_process = Process(target=self.cookies_generate)
             generator_process.start()
 
-        if self.TESTER_PROCESS:
+        if self.TESTER_ENABLED:
             tester_process = Process(target=self.cookies_tester)
             tester_process.start()
 
-        if self.API_PROCESS:
+        if self.API_ENABLED:
             api_process = Process(target=self.api)
             api_process.start()
