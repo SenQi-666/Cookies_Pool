@@ -25,7 +25,10 @@ class RedisClient:
 
     def random(self):
         return random.choice(self.conn.hvals(self.name()))
-
+    
+    def count(self):
+        return self.db.hlen(self.name())
+    
     def all_usr(self):
         return self.conn.hkeys(self.name())
 
