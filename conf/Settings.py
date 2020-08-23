@@ -16,7 +16,7 @@ GENERATOR_LOGIN_URL = {
     # 'TaoBao': 'https://login.taobao.com/',
 }
 
-# 测试器测试网址，如扩展其他站点可在此配置
+# 检测器测试网址，如扩展其他站点可在此配置
 TESTER_URL = {
     'weibo': 'https://m.weibo.cn/profile/5014846080',
     # 'TaoBao': '',
