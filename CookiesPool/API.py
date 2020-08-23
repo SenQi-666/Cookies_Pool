@@ -10,11 +10,18 @@ def index():
     return '<h2>Welcome to the Cookies Pool System</h2>'
 
 
-@app.route('/<website>/random_cookies')
+@app.route('/<website>/random')
 def random(website):
     conn = redis_conn()
     cookies = getattr(conn, website+'_cookies').random()
     return cookies
+
+
+@app.route('/<website>/count')
+def count(website):
+    conn = redis_conn()
+    counts = getattr(conn, website+'_cookies').count()
+    return str(counts)
 
 
 def redis_conn():
