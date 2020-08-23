@@ -9,7 +9,7 @@ class BasicTester:
     def __init__(self, website):
         self.DB_ACCOUNT = RedisClient(website, 'Account')
         self.DB_COOKIES = RedisClient(website, 'Cookies')
-        self.TESTER_DELAY = Settings.TESTER_DELAY
+        self.TEST_DELAY = Settings.TEST_DELAY
 
     def test(self, usr, cookies, test_url):
         print('账号：%s，正在检测Cookies......' % usr)
@@ -41,8 +41,8 @@ class WeiBoCookiesTester(BasicTester):
         self.website = website
 
     def run(self):
-        test_url = Settings.TESTER_URL[self.website]
+        test_url = Settings.TEST_URL[self.website]
         cookies_group = self.DB_COOKIES.all()
         for usr, cookies in cookies_group.items():
             self.test(usr, cookies, test_url)
-            time.sleep(self.TESTER_DELAY)
+            time.sleep(self.TEST_DELAY)
