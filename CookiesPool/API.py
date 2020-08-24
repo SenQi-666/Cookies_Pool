@@ -1,4 +1,5 @@
 from CookiesPool.RedisControl import RedisClient
+from CookiesPool.Tester import WeiBoCookiesTester
 from flask import Flask, g
 from conf import Settings
 
@@ -13,8 +14,15 @@ def index():
 @app.route('/<website>/random')
 def random(website):
     conn = redis_conn()
-    cookies = getattr(conn, website+'_cookies').random()
-    return cookies
+    while True:
+        cookies_dict = getattr(conn, website+'_cookies').random()
+        usr, cookies = list(cookies_dict.keys())[0], list(cookies_dict.values())[0]
+        obj = WeiBoCookiesTester(website)
+        obj.test(cookies, usr, Settings.TEST_URL[website])
+        if obj.STATUS:
+            return cookies
+        else:
+            return 'All cookies are invalid, please generate again'
 
 
 @app.route('/<website>/count')
