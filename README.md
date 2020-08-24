@@ -154,6 +154,17 @@ website 为站点参数
 账号----密码
 ```
 
+#### 保存账号信息到数据库
+
+------
+
+位于 libs 文件夹内，数据格式为：
+
+```
+$ cd CookiesPool
+$ python3 SaveAccount.py
+```
+
 
 
 #### 运行Cookie池
@@ -163,6 +174,7 @@ website 为站点参数
 ```
 $ python3 run_project.py
 ```
+
 
 
 #### 运行效果
