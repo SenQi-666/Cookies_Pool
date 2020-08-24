@@ -22,8 +22,7 @@
 │  ├── __init__.py
 │  └── weibo
 │    ├── PhoneSMS.py
-│    ├── __init__.py
-├── README.md
+│    └── __init__.py
 ├── bin
 │  ├── Generate_Account_File.py
 │  ├── __init__.py
@@ -33,6 +32,7 @@
 │  └── __init__.py
 ├── libs
 │  └── weibo_account.txt
+├── README.md
 └── requirements.txt
 ```
 
@@ -42,7 +42,7 @@
 
 ------
 
-```shell
+```
 $ pip3 install -r requirements.txt
 ```
 
@@ -133,7 +133,7 @@ PHONE_NUMBER = None
 
 #### 运行之前首先创建账号存储文件
 
-```shell
+```
 $ cd bin
 $ python3 Generate_Account_File.py website
 ```
@@ -160,7 +160,7 @@ website 为站点参数
 
 ------
 
-```shell
+```
 $ python3 run_project.py
 ```
 
