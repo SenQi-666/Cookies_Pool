@@ -79,7 +79,7 @@ GENERATOR_LOGIN_URL = {
 
 # 检测器测试网址，如扩展其他站点可在此配置
 TEST_URL = {
-    'weibo': 'https://m.weibo.cn/profile/5014846080',
+    'weibo': 'https://m.weibo.cn/comments/hotflow?id=4541817464295734&mid=4541817464295734&max_id=140907388528649&max_id_type=0',
     # 'TaoBao': '',
 }
 
