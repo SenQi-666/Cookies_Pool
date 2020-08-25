@@ -19,7 +19,7 @@ class BasicTester:
             if res.status_code == 200:
                 res.json()
                 self.STATUS = True
-                print(cookie_dict)
+                print(cookies)
                 print('账号：%s Cookies有效' % usr)
             elif res.status_code == 302:
                 self.STATUS = False
