@@ -68,8 +68,9 @@ class WeiBoCookiesGenerator(BasicGenerator):
             SMS('1069009010021', 'DLYZ').send()
             time.sleep(2)
             self.driver.find_element_by_xpath('//*[@id="msgVerify"]/div[1]/div/div/div[2]/a[2]').click()
-        cookies = self.driver.get_cookies()
-        cookies = json.dumps(cookies[0])
+        cookies_list = self.driver.get_cookies()
+        cookie = [item["name"] + "=" + item["value"] for item in cookies_list]
+        cookies = '; '.join(item for item in cookie)
         print(cookies)
         self.save_cookie(usr, cookies)
 
