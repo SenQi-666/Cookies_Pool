@@ -15,12 +15,9 @@ class BasicTester:
     def test(self, cookies,  usr, test_url):
         print('账号：%s，正在检测Cookies......' % usr)
         try:
-            cookies = json.loads(cookies)
-            cookie_dict = {}
-            for key, val in cookies.items():
-                cookie_dict[key] = str(val)
-            res = requests.get(test_url, cookies=cookie_dict, allow_redirects=False)
+            res = requests.get(test_url, cookies={'cookie': cookies}, allow_redirects=False)
             if res.status_code == 200:
+                res.json()
                 self.STATUS = True
                 print(cookie_dict)
                 print('账号：%s Cookies有效' % usr)
