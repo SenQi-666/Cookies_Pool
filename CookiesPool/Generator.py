@@ -40,6 +40,9 @@ class WeiBoCookiesGenerator(BasicGenerator):
             options = webdriver.ChromeOptions()
             options.add_experimental_option('excludeSwitches', ['enable-automation'])
             self.driver = webdriver.Chrome(options=options)
+            self.driver.execute_cdp_cmd("Page.addScriptToEvaluateOnNewDocument", {
+                "source": """Object.defineProperty(navigator, 'webdriver', {get: () => undefined})""",
+            })
         except Exception:
             raise Exception('Please configure the Chrome first')
 
